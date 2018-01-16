@@ -162,7 +162,10 @@ ltAppAsset::register($this);
         </div><!--/header-bottom-->
     </header><!--/header-->
 
-    <?= $content ?>
+    <div class="container">
+        <?= $content ?>
+    </div>
+
 
     <footer id="footer"><!--Footer-->
         <div class="footer-top">
