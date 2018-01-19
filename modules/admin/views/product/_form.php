@@ -13,7 +13,7 @@ mihaildev\elfinder\Assets::noConflict($this);
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
 
 
@@ -28,12 +28,7 @@ mihaildev\elfinder\Assets::noConflict($this);
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?php
-//        echo $form->field($model, 'content')->widget(CKEditor::className(),[
-//            'editorOptions' => [
-//                'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
-//                'inline' => false, //по умолчанию false
-//            ],
-//        ]);
+
     echo $form->field($model, 'content')->widget(CKEditor::className(), [
             'editorOptions' => ElFinder::ckeditorOptions('elfinder',[])
          ]);
@@ -45,7 +40,7 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <?= $form->field($model, 'hit')->checkbox([ '0', '1', ]) ?>
 
